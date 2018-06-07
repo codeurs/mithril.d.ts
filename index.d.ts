@@ -169,7 +169,7 @@ declare namespace Mithril {
 	// Vnode children types
 	type Child = Vnode<any, any> | string | number | boolean | null | undefined;
 	interface ChildArray extends Array<Children> { }
-	type Children = Child | ChildArray;
+	type Children = Child | ChildArray | Function;
 	type ChildArrayOrPrimitive = ChildArray | string | number | boolean;
 
 	/** Virtual DOM nodes, or vnodes, are Javascript objects that represent an element (or parts of the DOM). */
