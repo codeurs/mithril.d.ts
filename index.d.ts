@@ -167,7 +167,7 @@ declare namespace Mithril {
 	}
 
 	// Vnode children types
-	type Child = Vnode<any, any> | string | number | boolean | null | undefined;
+	type Child = Vnode<any, any> | string | number | boolean | null | undefined | void;
 	interface ChildArray extends Array<Children> { }
 	type Children = Child | ChildArray | Function;
 	type ChildArrayOrPrimitive = ChildArray | string | number | boolean;
