@@ -267,3 +267,4 @@ declare namespace Mithril {
 }
 
 declare const Mithril: Mithril.Static;
+export = Mithril;
