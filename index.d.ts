@@ -173,9 +173,9 @@ declare namespace Mithril {
 	type ChildArrayOrPrimitive = ChildArray | string | number | boolean;
 
 	/** Virtual DOM nodes, or vnodes, are Javascript objects that represent an element (or parts of the DOM). */
-	interface Vnode<Attrs = {}, State extends Lifecycle<Attrs, State> = Lifecycle<Attrs, State>> {
+	interface Vnode<Attrs = {}, State = {}> {
 		/** The nodeName of a DOM element. It may also be the string [ if a vnode is a fragment, # if it's a text vnode, or < if it's a trusted HTML vnode. Additionally, it may be a component. */
-		tag: string | ComponentTypes<Attrs, State>;
+		tag: string | Function;
 		/** A hashmap of DOM attributes, events, properties and lifecycle methods. */
 		attrs: Attrs;
 		/** An object that is persisted between redraws. In component vnodes, state is a shallow clone of the component object. */
@@ -267,4 +267,6 @@ declare namespace Mithril {
 }
 
 declare const Mithril: Mithril.Static;
-export = Mithril;
+declare module 'mithril' {
+	export = Mithril;	
+}
