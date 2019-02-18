@@ -267,6 +267,3 @@ declare namespace Mithril {
 }
 
 declare const Mithril: Mithril.Static;
-declare module 'mithril' {
-	export = Mithril;	
-}
