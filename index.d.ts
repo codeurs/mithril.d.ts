@@ -194,7 +194,7 @@ declare namespace Mithril {
 
 	// In some lifecycle methods, Vnode will have a dom property
 	// and possibly a domSize property.
-	interface VnodeDOM<Attrs = {}, State extends Lifecycle<Attrs, State> = Lifecycle<Attrs, State>> extends Vnode<Attrs, State> {
+	interface VnodeDOM<Attrs = {}, State extends Lifecycle<Attrs, State> = {}> extends Vnode<Attrs, State> {
 		/** Points to the element that corresponds to the vnode. */
 		dom: Element;
 		/** This defines the number of DOM elements that the vnode represents (starting from the element referenced by the dom property). */
@@ -210,7 +210,7 @@ declare namespace Mithril {
 	 * Any Javascript object that has a view method can be used as a Mithril component.
 	 * Components can be consumed via the m() utility.
 	 */
-	interface Component<Attrs = {}, State extends Lifecycle<Attrs, State> = Lifecycle<Attrs, State>> extends Lifecycle<Attrs, State> {
+	interface Component<Attrs = {}, State extends Lifecycle<Attrs, State>  = {}> extends Lifecycle<Attrs, State> {
 		/** Creates a view out of virtual elements. */
 		view(this: State, vnode: Vnode<Attrs, State>): Children | null | void;
 	}
@@ -248,10 +248,10 @@ declare namespace Mithril {
 	 * Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse.
 	 * Any Javascript object that has a view method is a Mithril component. Components can be consumed via the m() utility.
 	 */
-	type Comp<Attrs = {}, State extends Lifecycle<Attrs, State> = Lifecycle<Attrs, State>> = Component<Attrs, State> & State;
+	type Comp<Attrs = {}, State extends Lifecycle<Attrs, State>  = {}> = Component<Attrs, State> & State;
 
 	/** Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse. Components can be consumed via the m() utility. */
-	type ComponentTypes<A = {}, S extends Lifecycle<A, S> = Lifecycle<A, S>> = Component<A, S> | { new (vnode: CVnode<A>): ClassComponent<A> } | FactoryComponent<A>;
+	type ComponentTypes<A = {}, S extends Lifecycle<A, S> = {}> = Component<A, S> | { new (vnode: CVnode<A>): ClassComponent<A> } | FactoryComponent<A>;
 
 	/** This represents the attributes available for configuring virtual elements, beyond the applicable DOM attributes. */
 	interface Attributes extends Lifecycle<any, any> {
